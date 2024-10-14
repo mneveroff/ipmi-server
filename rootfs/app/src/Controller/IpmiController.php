@@ -12,6 +12,7 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Process\Process;
+
 class IpmiController
 {
     private array $ipmiTypes = ["lanplus", "lan", "imb", "open"];
@@ -155,6 +156,15 @@ class IpmiController
         $cmd = ['ipmitool'];
 
         array_push($cmd, '-H', $ipmi['host'], '-p', $ipmi['port'], '-U', $ipmi['user'], '-P', $ipmi['password']);
+
+        $extra_params = $query->get('extra', '');
+
+        if (!empty($extra_params)) {
+            // NOTE: this only supports double-quoted params, i.e. `--option "two words"` will work,
+            // but `--option 'two words'` will not work correctly.
+            $extra_cmd = str_getcsv($extra_params, ' ', '"', '');
+            $cmd = array_merge($cmd, $extra_cmd);
+        }
 
         return $cmd;
     }
