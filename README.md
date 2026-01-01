@@ -2,6 +2,8 @@
 
 ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/mneveroff/ipmi-server) ![Docker Pulls](https://img.shields.io/docker/pulls/mneveroff/ipmi-server) ![GitHub last commit](https://img.shields.io/github/last-commit/mneveroff/ipmi-server) ![GitHub issues](https://img.shields.io/github/issues/mneveroff/ipmi-server) ![GitHub](https://img.shields.io/github/license/mneveroff/ipmi-server)
 
+> **⚠️ ARCHIVED:** This repository is no longer actively maintained as I've moved to HA OS. The Docker Hub image will remain available but is not recommended. Feel free to fork this repo—I'm happy to link any active forks here.
+
 ## Details of the container
 
 ### IPMI Server
